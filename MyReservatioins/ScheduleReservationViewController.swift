@@ -49,12 +49,12 @@ class ScheduleReservationViewController: UIViewController, UICollectionViewDeleg
     }
     
     // MARK:- IBAction
-    func donePicker(_ sender: UIBarButtonItem){
+    @objc func donePicker(_ sender: UIBarButtonItem){
         textField.text = pickerData[picker.selectedRow(inComponent: 0)]
         textField.resignFirstResponder()
     }
     
-    func cancelPicker(_ sender: UIBarButtonItem){
+    @objc func cancelPicker(_ sender: UIBarButtonItem){
         textField.resignFirstResponder()
     }
     
@@ -154,10 +154,10 @@ class ScheduleReservationViewController: UIViewController, UICollectionViewDeleg
         toolBar.tintColor = UIColor(red: 246.0/255, green: 246.0/255, blue: 246.0/255, alpha: 1.0)
         toolBar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(donePicker))
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker))
         doneButton.tintColor = UIColor(red: 17.0/255, green: 109.0/255, blue: 194.0/255, alpha: 1.0)
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(cancelPicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(cancelPicker))
         cancelButton.tintColor = UIColor(red: 17.0/255, green: 109.0/255, blue: 194.0/255, alpha: 1.0)
         
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
